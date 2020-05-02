@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace CheckAlgos;
 
-class Verhoeff implements CheckAlgoInterface
+class VerhoeffAlgorithm implements CheckAlgoInterface
 {
     /** @var int[][]  */
     private static $d = [
