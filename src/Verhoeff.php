@@ -5,6 +5,7 @@ namespace CheckAlgos;
 
 class Verhoeff implements CheckAlgoInterface
 {
+    /** @var int[][]  */
     private static $d = [
         [0,1,2,3,4,5,6,7,8,9],
         [1,2,3,4,0,6,7,8,9,5],
@@ -18,6 +19,7 @@ class Verhoeff implements CheckAlgoInterface
         [9,8,7,6,5,4,3,2,1,0]
     ];
     
+    /** @var int[][]  */
     private static $p = [
         [0,1,2,3,4,5,6,7,8,9],
         [1,5,7,6,2,8,3,0,9,4],
@@ -29,6 +31,7 @@ class Verhoeff implements CheckAlgoInterface
         [7,0,4,6,9,1,3,2,5,8]
     ];
     
+    /** @var int[]  */
     private static $inv = [0, 4, 3, 2, 1, 5, 6, 7, 8, 9];
     
     public static function validate(string $str): bool
@@ -36,6 +39,7 @@ class Verhoeff implements CheckAlgoInterface
         $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {
+            /** @var int $cdigit */
             $cdigit = self::$d[$cdigit][self::$p[$i%8][$digit]];
         }
         return $cdigit === 0;
@@ -46,6 +50,7 @@ class Verhoeff implements CheckAlgoInterface
         $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {
+            /** @var int $cdigit */
             $cdigit = self::$d[$cdigit][self::$p[($i+1)%8][$digit]];
         }
         return (string)self::$inv[$cdigit];
