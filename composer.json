@@ -1,0 +1,23 @@
+{
+  "name": "fredricj/check-algos",
+  "description": "Collection of checksum algorithms",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Fredric Johansson",
+      "email": "github@fredricj.se"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CheckAlgos\\": "src/"
+    }
+  },
+  "require": {
+    
+  },
+  "require-dev": {
+    "phpunit/phpunit": ">=9"
+  }
+}
