@@ -3,7 +3,6 @@
 
 namespace CheckAlgos;
 
-
 class DammAlgorithm implements CheckAlgoInterface
 {
     private static $xy = [
@@ -25,8 +24,8 @@ class DammAlgorithm implements CheckAlgoInterface
      */
     public static function validate(string $str): bool
     {
-        $c = self::calc($str);
-        return $c === 0;
+        $digit = self::calc($str);
+        return $digit === 0;
     }
     
     /**
@@ -35,18 +34,19 @@ class DammAlgorithm implements CheckAlgoInterface
      */
     public static function calculate(string $str): string
     {
-        $c = self::calc($str);
-        return (string)$c;
+        $digit = self::calc($str);
+        return (string)$digit;
     }
     
-    private static function calc(string $str): int {
-        $c = 0;
-        $i = 0;
+    private static function calc(string $str): int
+    {
+        $digit = 0;
+        $idx = 0;
         $len = mb_strlen($str);
-        while ($i < $len) {
-            $c = self::$xy[$c][$str[$i]];
-            $i++;
+        while ($idx < $len) {
+            $digit = self::$xy[$digit][$str[$idx]];
+            $idx++;
         }
-        return $c;
+        return $digit;
     }
 }

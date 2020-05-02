@@ -3,7 +3,6 @@
 
 namespace CheckAlgos;
 
-
 interface CheckAlgoInterface
 {
     public static function validate(string $str): bool;

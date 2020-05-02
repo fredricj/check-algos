@@ -3,7 +3,6 @@
 
 namespace CheckAlgos\Test;
 
-
 use CheckAlgos\DammAlgorithm;
 use PHPUnit\Framework\TestCase;
 

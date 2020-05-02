@@ -3,7 +3,6 @@ declare(strict_types=1);
 
 namespace CheckAlgos;
 
-
 class Verhoeff implements CheckAlgoInterface
 {
     private static $d = [
@@ -34,23 +33,21 @@ class Verhoeff implements CheckAlgoInterface
     
     public static function validate(string $str): bool
     {
-        $c = 0;
+        $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {
-            $c = self::$d[$c][self::$p[$i%8][$digit]];
+            $cdigit = self::$d[$cdigit][self::$p[$i%8][$digit]];
         }
-        return $c === 0;
+        return $cdigit === 0;
     }
     
     public static function calculate(string $str): string
     {
-        $c = 0;
+        $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {
-            $c = self::$d[$c][self::$p[($i+1)%8][$digit]];
+            $cdigit = self::$d[$cdigit][self::$p[($i+1)%8][$digit]];
         }
-        return (string)self::$inv[$c];
+        return (string)self::$inv[$cdigit];
     }
-    
-    
 }
