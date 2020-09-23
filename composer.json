@@ -1,6 +1,6 @@
 {
   "name": "fredricj/check-algos",
-  "description": "Collection of checksum algorithms",
+  "description": "Collection of checksum algorithms. Currently supports Verhoeff, Luhn and Damm algorithms",
   "minimum-stability": "stable",
   "license": "MIT",
   "authors": [
