@@ -27,7 +27,7 @@ class LuhnAlgorithm implements CheckAlgoInterface
         $idx = 0;
         $sum = 0;
         while ($idx < $len) {
-            $row = (($idx+$parity)%2+1)*$str[$idx];
+            $row = (($idx+$parity)%2+1)*(int)$str[$idx];
             if ($row >= 10) {
                 $row -= 9;
             }
