@@ -5,7 +5,6 @@ namespace CheckAlgos;
 
 class LuhnAlgorithm implements CheckAlgoInterface
 {
-    
     public static function validate(string $str): bool
     {
         $len = mb_strlen($str);
