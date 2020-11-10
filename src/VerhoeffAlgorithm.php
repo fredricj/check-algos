@@ -36,6 +36,9 @@ class VerhoeffAlgorithm implements CheckAlgoInterface
     
     public static function validate(string $str): bool
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {
@@ -47,6 +50,9 @@ class VerhoeffAlgorithm implements CheckAlgoInterface
     
     public static function calculate(string $str): string
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $cdigit = 0;
         $digits = array_reverse(str_split($str, 1));
         foreach ($digits as $i => $digit) {

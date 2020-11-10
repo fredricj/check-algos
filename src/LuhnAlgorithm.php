@@ -7,6 +7,9 @@ class LuhnAlgorithm implements CheckAlgoInterface
 {
     public static function validate(string $str): bool
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $len = mb_strlen($str);
         $parity = ($len-1) % 2;
         $sum = self::calc($str, $len, $parity);
@@ -15,6 +18,9 @@ class LuhnAlgorithm implements CheckAlgoInterface
     
     public static function calculate(string $str): string
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $len = mb_strlen($str);
         $parity = $len % 2;
         $sum = self::calc($str, $len, $parity);

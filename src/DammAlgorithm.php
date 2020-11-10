@@ -25,6 +25,9 @@ class DammAlgorithm implements CheckAlgoInterface
      */
     public static function validate(string $str): bool
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $digit = self::calc($str);
         return $digit === 0;
     }
@@ -35,6 +38,9 @@ class DammAlgorithm implements CheckAlgoInterface
      */
     public static function calculate(string $str): string
     {
+        if (!is_numeric($str)) {
+            throw new \InvalidArgumentException("argument is not a numeric string");
+        }
         $digit = self::calc($str);
         return (string)$digit;
     }

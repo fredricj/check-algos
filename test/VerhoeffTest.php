@@ -22,6 +22,12 @@ class VerhoeffTest extends TestCase
         self::assertNotTrue(VerhoeffAlgorithm::validate('84736430954837284567893'));
     }
     
+    public function testValidateException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        self::assertNotTrue(VerhoeffAlgorithm::validate('8473 '));
+    }
+    
     public function testCalculate(): void
     {
         self::assertEquals(2, VerhoeffAlgorithm::calculate('75872'));
@@ -29,5 +35,12 @@ class VerhoeffTest extends TestCase
         self::assertEquals(0, VerhoeffAlgorithm::calculate('142857'));
         self::assertEquals(0, VerhoeffAlgorithm::calculate('123456789012'));
         self::assertEquals(2, VerhoeffAlgorithm::calculate('8473643095483728456789'));
+    }
+
+    public function testCalculateException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        /** @noinspection UnusedFunctionResultInspection */
+        VerhoeffAlgorithm::calculate('8473 ');
     }
 }

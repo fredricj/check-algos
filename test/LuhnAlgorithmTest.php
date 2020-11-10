@@ -30,6 +30,12 @@ class LuhnAlgorithmTest extends TestCase
         self::assertFalse(LuhnAlgorithm::validate("79927398719"));
         self::assertFalse(LuhnAlgorithm::validate("79927398710"));
     }
+    
+    public function testValidateException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        LuhnAlgorithm::validate("79927398710 ");
+    }
     public function testCalculate(): void
     {
         self::assertEquals(3, LuhnAlgorithm::calculate("7992739871"));
@@ -41,5 +47,11 @@ class LuhnAlgorithmTest extends TestCase
         self::assertEquals(0, LuhnAlgorithm::calculate("123456789030"));
         self::assertEquals(0, LuhnAlgorithm::calculate("12345678903000"));
         self::assertEquals(9, LuhnAlgorithm::calculate("123456789030001"));
+    }
+
+    public function testCalculateException(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        LuhnAlgorithm::calculate("79927398710 ");
     }
 }
