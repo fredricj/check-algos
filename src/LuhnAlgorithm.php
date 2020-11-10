@@ -8,7 +8,7 @@ class LuhnAlgorithm implements CheckAlgoInterface
     public static function validate(string $str): bool
     {
         $len = mb_strlen($str);
-        $parity = $len-1 % 2;
+        $parity = ($len-1) % 2;
         $sum = self::calc($str, $len, $parity);
         return $sum % 10 === 0;
     }
